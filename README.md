@@ -49,7 +49,7 @@ To use the script, simply run it from the command line. It will prompt you to en
 This script requires FFmpeg to be installed on your system. You can install FFmpeg using the package manager of your operating system. For example, on Ubuntu, you can install FFmpeg using the following command:
 
 <pre>
-      sudo apt-get install ffmpeg
+    sudo apt-get install ffmpeg
 </pre>
 
 #Note
