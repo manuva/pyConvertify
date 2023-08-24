@@ -1,4 +1,5 @@
 import os
+
 import subprocess
 
 def convert_file(input_file, output_file, output_format):
@@ -8,17 +9,6 @@ def convert_file(input_file, output_file, output_format):
     except subprocess.CalledProcessError as e:
         print("Conversion failed.")
         print(e)
-
-def prompt_input_file():
-    input_file = input("Enter the input file name: ")
-    return input_file
-
-def prompt_output_file():
-    output_dir = input("Enter the output directory path: ")
-    output_file = input("Enter the output filename (without extension): ")
-    output_format = prompt_output_format()
-    output_file_path = f"{output_dir}/{output_file}.{output_format}"
-    return output_file_path
 
 def prompt_output_format():
     print("Select the output format:")
@@ -40,6 +30,43 @@ def prompt_output_format():
     else:
         print("Invalid choice. Defaulting to MP4.")
         return 'mp4'
+
+def check_file_exists(file_path):
+    if not os.path.isfile(file_path):
+        print(f"Error: The file {file_path} does not exist.")
+        return False
+    return True
+
+def check_dir_exists(dir_path):
+    if not os.path.isdir(dir_path):
+        print(f"Error: The directory {dir_path} does not exist.")
+        return False
+    return True
+
+def check_filename_valid(filename):
+    invalid_chars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*']
+    if any(char in filename for char in invalid_chars):
+        print(f"Error: The filename {filename} contains invalid characters.")
+        return False
+    return True
+
+def prompt_input_file():
+    while True:
+        input_file = input("Enter the input file name: ")
+        if check_file_exists(input_file):
+            return input_file
+
+def prompt_output_file():
+    while True:
+        output_dir = input("Enter the output directory path: ")
+        if not check_dir_exists(output_dir):
+            continue
+        output_file = input("Enter the output filename (without extension): ")
+        if not check_filename_valid(output_file):
+            continue
+        output_format = prompt_output_format()
+        output_file_path = f"{output_dir}/{output_file}.{output_format}"
+        return output_file_path
 
 def main():
     input_file = prompt_input_file()
