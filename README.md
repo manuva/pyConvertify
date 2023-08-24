@@ -42,13 +42,13 @@ This function is the main driver function. It calls the `prompt_input_file()` fu
 #Usage
 To use the script, simply run it from the command line. It will prompt you to enter the necessary information (input file, output directory, output filename, output format). The script assumes that the input file is in the current directory.
 
-  python pyConvertify.py
+    python pyConvertify.py
 
 #Dependencies
 
 This script requires FFmpeg to be installed on your system. You can install FFmpeg using the package manager of your operating system. For example, on Ubuntu, you can install FFmpeg using the following command:
 
-  sudo apt-get install ffmpeg
+      sudo apt-get install ffmpeg
 
 #Note
 
