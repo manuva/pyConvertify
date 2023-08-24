@@ -10,7 +10,7 @@ The script uses the following Python modules:
 - os: Provides functions for interacting with the operating system.
 - subprocess: Allows you to spawn new processes, connect to their input/output/error pipes, and obtain their return codes.
 
-#Functions
+## Functions
 
 The script contains the following functions:
 `convert_file(input_file, output_file, output_format)`
@@ -39,12 +39,12 @@ This function prompts the user to enter the output directory path and the output
 This function is the main driver function. It calls the `prompt_input_file()` function to get the input file, constructs the full path of the input file, calls the `prompt_output_file()` function to get the output file path, extracts the output format from the output file name, and finally calls the `convert_file()` function to convert the input file to the desired format.
 
 
-#Usage
+## Usage
 To use the script, simply run it from the command line. It will prompt you to enter the necessary information (input file, output directory, output filename, output format). The script assumes that the input file is in the current directory.
 <pre>
 python pyConvertify.py
 </pre>
-#Dependencies
+## Dependencies
 
 This script requires FFmpeg to be installed on your system. You can install FFmpeg using the package manager of your operating system. For example, on Ubuntu, you can install FFmpeg using the following command:
 
@@ -52,6 +52,6 @@ This script requires FFmpeg to be installed on your system. You can install FFmp
 sudo apt-get install ffmpeg
 </pre>
 
-#Note
+## Note
 
 This script performs error checking on the input file, output directory, and output filename. It is assumed that the user will provide valid inputs. If the user provides an invalid input, the script will keep prompting until a valid input is entered.
